@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICSP Template Creator", "ICSP Template Creator\ICSP Template Creator.csproj", "{F444CD65-9A33-4C07-8E58-226A4D14297E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F444CD65-9A33-4C07-8E58-226A4D14297E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F444CD65-9A33-4C07-8E58-226A4D14297E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F444CD65-9A33-4C07-8E58-226A4D14297E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F444CD65-9A33-4C07-8E58-226A4D14297E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BB0C33B-6CC3-4DC9-B991-22BCFCCCFD3A}
+	EndGlobalSection
+EndGlobal

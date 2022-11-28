@@ -8,7 +8,7 @@ namespace ICSP_Template_Creator
 {
     internal class Product
     {
-        public int prodNum { get; set; }
+        public string prodNum { get; set; }
         public string prodCatDesc { get; set; } 
         public string brandCode { get; set; } 
         public string cat1 { get; set; } 
@@ -18,7 +18,7 @@ namespace ICSP_Template_Creator
 
         public Product()
         {
-            prodNum = 0;
+            prodNum = "";
             prodCatDesc = "";
             brandCode = "";
             cat1 = "";
@@ -26,7 +26,7 @@ namespace ICSP_Template_Creator
             template = "";
         }
 
-        public Product(int pNum, string prodCat, string brand, DateTime entered)
+        public Product(string pNum, string prodCat, string brand, DateTime entered)
         {
             prodNum = pNum;
             prodCatDesc = prodCat;

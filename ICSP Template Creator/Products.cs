@@ -15,14 +15,15 @@ namespace ICSP_Template_Creator
         public List<Product> prods = new List<Product>();
         Template templates = new Template();
         Brand brands = new Brand();
-        int pNum, comp = 0;
-        string prodCat, brand = "";
+        int comp = 0;
+        string pNum, prodCat, brand = "";
         DateTime entered;
         public void readFromExcel(DateTime filterDate, string fileName, ProgressBar pbar)
         {
             Excel.Application xlApp = new Excel.Application();
             Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(fileName);
             Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+            xlWorksheet.Columns[1].NumberFormat = "@";
             Excel.Range xlRange = xlWorksheet.UsedRange;
             pbar.Maximum = xlRange.Rows.Count;
             pbar.Value = 0;
@@ -35,7 +36,7 @@ namespace ICSP_Template_Creator
                         switch (j)
                         {
                             case 1:
-                                pNum = Convert.ToInt32(xlRange.Cells[i, j].Value2);
+                                pNum = xlRange.Cells[i, j].Value2;
                                 break;
                             case 3:
                                 brand = xlRange.Cells[i, j].Value2;
@@ -78,12 +79,14 @@ namespace ICSP_Template_Creator
             
         }
 
+        //Set cell format to string so it doesn't chop off the leading 0's in product numbers
         public void writeProduct()
         {
             Excel.Application xlApp = new Excel.Application();
             object misValue = System.Reflection.Missing.Value;
             Excel.Workbook xlWorkbook = xlApp.Workbooks.Add();
             Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+            xlWorksheet.Columns[1].NumberFormat = "@";
 
             xlWorksheet.Cells[1, 1] = "Product Number";
             xlWorksheet.Cells[1, 2] = "Product Template";
@@ -138,6 +141,8 @@ namespace ICSP_Template_Creator
                 if (t.ident.Any(s => prod.prodCatDesc.Contains(s)))
                     prod.template = t.template;
             }
+            if (prod.template == "")
+                prod.template = "Starter Template";
         }
 
         public void decideBrand(Product prod)
